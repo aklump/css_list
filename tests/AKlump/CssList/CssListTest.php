@@ -10,6 +10,14 @@ require_once dirname(__FILE__) . '/../../../vendor/autoload.php';
 class CssListTestTest extends \PHPUnit_Framework_TestCase {
 
 
+  public function testEndingDot() {
+    $source = '.has-layout.';
+    
+    $classes = CssList::getClasses($source);
+
+    $this->assertContains('.has-layout', $classes);
+  }
+
   public function testCompoundClasses2() {
     $source = '.layout--group__item.tile--collection';
     

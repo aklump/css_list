@@ -36,6 +36,11 @@ class CssList {
     static::reduceAndSortFiles($classes);
     static::filterOutFiles($classes);
 
+    // Strip off ending . from classes
+    array_walk($classes, function($value, $key) use (&$classes) {
+      $classes[$key] = rtrim($value, '.');
+    });
+
     // Now review each line for compound classes and pull
     $removes = array();
     foreach ($classes as $value) {
