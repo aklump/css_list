@@ -1,0 +1,4 @@
+name = "CSS Lister"
+description = "Tool to pull an index of classes and ids used in a stylesheet."
+version = 0.0.1
+author = Aaron Klump <sourcecode@intheloftstudios.com>
