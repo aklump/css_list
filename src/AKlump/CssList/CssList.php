@@ -112,7 +112,7 @@ class CssList {
       if (preg_match('/\);?$/', $value)) {
         unset($array[$key]);
       }
-      if (preg_match('/\/|\.css\.map/', $value)) {
+      if (preg_match('/\/|\.css\.map|\.scss/', $value)) {
         unset($array[$key]);
       }
     }
