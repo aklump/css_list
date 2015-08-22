@@ -46,18 +46,36 @@ try {
   $data = new ExportData;
   foreach ($source as $file) {
     $contents = file_get_contents($file);
-    $results['ids'] = CssList::getIds($contents);
+    list($ids) = CssList::getIds($contents);
 
     $data->setPage('Ids');
-    foreach ($results['ids'] as $id) {
+    foreach ($ids as $id) {
       $data->add('id', $id)->next();
     }
 
-    $results['classes'] = CssList::getClasses($contents);
+    list($classes, $compoundClasses, $smaCss) = CssList::getClasses($contents);
+
+    $classes = array_merge($classes, $compoundClasses);
+    CssList::sortClasses($classes);
+
     $data->setPage('Classes');
-    foreach ($results['classes'] as $class) {
+    foreach ($classes as $class) {
       $data->add('class', $class)->next();
     }
+
+    // $data->setPage('Compound Classes');
+    // foreach ($compoundClasses as $class) {
+    //   $data->add('class', $class)->next();
+    // }
+
+    // $data->setPage('SmaCSS Categories');
+    // foreach ($smaCss as $category => $classList) {
+    //   // foreach ($classList as $classes) {
+    //     $data->add('category', $category)
+    //     ->add('classes', implode(', ', $classList))
+    //     ->next();
+    //   // }
+    // }
   }
     
 } catch (Exception $e) {
