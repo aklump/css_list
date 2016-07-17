@@ -1,4 +1,6 @@
+#!/usr/bin/php
 <?php
+
 /**
  * @file
  * Processes a file or directory to index the css classes and ids.
@@ -22,7 +24,7 @@ try {
     else {
       $source = getcwd() . '/' . $argv[1];
     }
-     
+
     if (is_file($source)) {
       $source = array($source);
     }
@@ -77,10 +79,12 @@ try {
     //   // }
     // }
   }
-    
+
 } catch (Exception $e) {
   print $e->getMessage() . PHP_EOL;
 }
 
-$exporter = new \AKlump\LoftDataGrids\ValuesOnlyExporter($data);
-print $exporter->export();
+if (isset($data)) {
+  $exporter = new \AKlump\LoftDataGrids\ValuesOnlyExporter($data);
+  print $exporter->export();
+}
