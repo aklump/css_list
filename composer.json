@@ -1,25 +1,25 @@
 {
-  "authors": [
-    {
-      "email": "sourcecode@intheloftstudios.com",
-      "homepage": "http://www.intheloftstudios.com",
-      "name": "Aaron Klump",
-      "role": "Developer"
-    }
-  ],
-  "autoload": {
-    "psr-0": {
-      "AKlump": "src"
-    }
-  },
-  "description": "Tool to pull an index of classes and ids used in a stylesheet.",
-  "homepage": "http://github.com/aklump/css_list",
-  "license": "BSD-3-Clause",
-  "name": "aklump/css_list",
-  "require": {
-    "aklump/loft_data_grids": "~0.4.16",
-    "php": ">=5.3.0"
-  },
-  "type": "library",
-  "version": "0.0.4"
+    "authors": [
+        {
+            "email": "sourcecode@intheloftstudios.com",
+            "homepage": "http:\/\/www.intheloftstudios.com",
+            "name": "Aaron Klump",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "AKlump": "src"
+        }
+    },
+    "description": "Tool to pull an index of classes and ids used in a stylesheet.",
+    "homepage": "http:\/\/github.com\/aklump\/css_list",
+    "license": "BSD-3-Clause",
+    "name": "aklump\/css_list",
+    "require": {
+        "aklump\/loft_data_grids": "~0.4.16",
+        "php": ">=5.3.0"
+    },
+    "type": "library",
+    "version": "0.0.5"
 }
