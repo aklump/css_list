@@ -3,11 +3,23 @@
  * @file
  * PHPUnit tests for the CssListTest class
  */
+
 namespace AKlump\CssList;
 
-require_once dirname(__FILE__) . '/../../../vendor/autoload.php';
-
 class CssListTest extends \PHPUnit_Framework_TestCase {
+
+  public function testCompressedSortReturnsCorrectClasses() {
+    $subject = '.menu--header.theme--dark .menu li{border-color:#000}.menu--header.theme--dark .menu>ul>li>ul>li{background-color:#2f2f2f;border-color:#090909}.menu--header.theme--dark .menu--header__close{color:#222;color:#fff;background-color:#D2222A}.menu--header.theme--dark .menu--header__toggle,.menu--header.theme--dark .menu--header__close{color:#fff;background-color:#222}.menu--header.theme--dark+.menu--header__close{color:#D2222A;background-color:#222}img{border:none}';
+    list($classes) = CssList::getClasses($subject);
+    $control = array(
+      '.menu--header',
+      '.menu',
+      '.menu--header__close',
+      '.menu--header__toggle',
+      '.theme--dark',
+    );
+    $this->assertSame($control, $classes);
+  }
 
   /**
    * Provides data for testSplitCompoundClasses.
@@ -38,8 +50,8 @@ class CssListTest extends \PHPUnit_Framework_TestCase {
    */
   function testClassNameProvider() {
     return array(
-      array('slice', array('slice', NULL, NULL)),
-      array('slice__title', array('slice', NULL, 'title')),
+      array('slice', array('slice', null, null)),
+      array('slice__title', array('slice', null, 'title')),
       array('slice--big__title', array('slice', 'big', 'title')),
     );
   }
