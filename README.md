@@ -1,4 +1,8 @@
-# Usage
+# CSS List
+
+Extract a list of ids and classes from a stylesheet using this tool.
+
+## Usage
 
 Go to a folder that contains css files and type:
   
