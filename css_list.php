@@ -101,5 +101,5 @@ try {
 
 if (isset($data)) {
     $exporter = new \AKlump\LoftDataGrids\ValuesOnlyExporter($data);
-    print $exporter->export();
+    print $exporter->export() . PHP_EOL;
 }
